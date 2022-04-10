@@ -1,0 +1,35 @@
+---
+title: "Data Memo Markdown"
+author: " Abhay Zope"
+date: '2022-04-06'
+output: html_document
+---
+
+I am a big soccer fan and back when I was in middle and high school, I used to play FIFA, the biggest soccer video game out there, quite regularly. The vast majority of male professional soccer players are in this game and are ranked on a potential scale from 1-99. While the rating indicates the quality of a particular player, there are a lot of unanswered questions as to how a player is assigned his ranking to begin with. The goal of my project is to develop a model which has the ability to predict the rating of a player on FIFA.
+
+```{r cars}
+fifa_data <- read.csv("~/Downloads/archive/players_20.csv", header=TRUE, sep =  ",")
+fifa_data
+```
+Dataset Overview: 
+
+The dataset I have obtained is from Kaggle and the link is: https://www.kaggle.com/datasets/stefanoleone992/fifa-20-complete-player-dataset. Please note that the dataset is imported above through the read.csv command. This dataset contains information of all players present in the game from FIFA 15 to FIFA 20, the editions of the game I am most familiar with. The dataset specifically contains attributes such as player name, overall, age, height, weight, nationality, and much more. There are a total of 18278 observations and 104 different potential predictors in the dataset. However, the vast majority of variables will not be relevant with regard to predicting player rating. In order to determine the rating of a player, I will be analyzing attributes such as pace, shooting, passing, etc. All of these attributes will be integer variables. Running the is.na() command below indicates that there is a small amount of data (6.7%) that is missing. Some of the missing data, such as jersey number, will be irrelevant to may objective. However, some of the missing data, such as shooting, will be relevant to our objective. As of now, I think it may make sense to drop any relevant missing data in order to better create a model. 
+
+```{r cars}
+is.na(fifa_data)
+sum(is.na(fifa_data))
+```
+
+-An overview of your research question(s): 
+
+I am interested in predicting the overall variable that is currently in the dataset. The overall variable indicates a player's overall rating and the question I am interested in answering is whether it is possible to predict this rating based off of their offensive and defensive attributes. I think this question will best be answered with a regression approach since the outcome variable is naturally quantitative in nature. The predictors which will be especially useful will be based attribute based such as shooting, passing, dribbling, etc. The goal of my model is predictive. This is because I am attempting to use a player's attributes to predict their overall rating. 
+
+- Your proposed project timeline
+
+I intend to follow a timeline which is very similar to the recommended timeline in the syllabus. Week 3 will be focused on cleaning and tidying data. Weeks 4 and 5 will be focused on writing descriptive analyses. In weeks 6-8, I will run models and create my first paper draft. Weeks 9 and 10 will be focused on making edits and creating my final paper draft.
+
+- Any questions or concerns
+
+As of now, I do not have any questions or concerns.
+
+
